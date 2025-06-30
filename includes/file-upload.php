@@ -6,7 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Upload Files</h2>
     <form method="POST" enctype="multipart/form-data" action="process-upload.php">
         <label for="file">Upload File</label>
         <input type="file" id = "file" name = "file">
