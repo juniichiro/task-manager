@@ -1,6 +1,6 @@
 <?php 
 
-$filetype = "file";
+$filetype = "image";
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     // can be page for where the file upload was initiated
