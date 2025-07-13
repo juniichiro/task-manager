@@ -3,10 +3,10 @@
     require "/xampp/htdocs/task-manager/includes/dbconnection.php";
 
     // Sanitize and fetch POST inputs
-    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
-    $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
-    $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
-    $confirmpassword = filter_input(INPUT_POST, "confPassword", FILTER_SANITIZE_SPECIAL_CHARS);
+    $username = $_POST['username'];
+    $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
+    $password = $_POST['password'];
+    $confirmpassword = $_POST['password'];
 
 
     // Initialize errors array
@@ -15,25 +15,63 @@
     // Username validation
     if (empty($username)) {
         $errors[] = "Username is required";
-    } elseif (strlen($username) < 3) {
-        $errors[] = "Username must be at least 3 characters";
-    } else {
-        // Check if username already exists
-        $stmt = $db->prepare("SELECT id FROM accounts WHERE username = ?");
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $stmt->store_result();
-        if ($stmt->num_rows > 0) {
-            $errors[] = "Username is already taken";
+    } 
+    // check if the username is valid or not depending on lenght
+    elseif (strlen($username) < 3 && strlen($username) > 10) {
+        $errors[] = "Invalid username.";
+    } 
+    // check if username already exists
+    else {
+        // creating a prepared statement
+        $sql = "SELECT user_id FROM accounts WHERE username = ?;";
+        // preparing the prepared statement
+        $stmt = mysqli_stmt_init($db);
+        // checker if the statement failed 
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            echo "SQL error";
         }
-        $stmt->close();
+        // proceeds into using the actual prepared statements putting user inputs into the placeholders
+        else {
+            // bind parameters to the placeholder
+            mysqli_stmt_bind_param($stmt, "s", $username);
+            // run parameters inside the database
+            mysqli_stmt_execute($stmt);
+            // put the executed $stmt value into results variable
+            $result = mysqli_stmt_get_result($stmt);
+            // use value of num_rows returned to $results variable to check if username exists already or no 
+            if ($result->num_rows > 0) {
+                $errors[] = "Username is already taken";
+            }
+        }
     }
 
     // Email validation
     if (empty($email)) {
         $errors[] = "Email is required";
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = "Invalid email format";
+    } 
+
+    else {
+        // creating a prepared statement
+        $sql = "SELECT user_id FROM accounts WHERE email = ?;";
+        // preparing the prepared statement
+        $stmt = mysqli_stmt_init($db);
+        // checker if the statement failed 
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            echo "SQL error";
+        }
+        // proceeds into using the actual prepared statements putting user inputs into the placeholders
+        else {
+            // bind parameters to the placeholder
+            mysqli_stmt_bind_param($stmt, "s", $email);
+            // run parameters inside the database
+            mysqli_stmt_execute($stmt);
+            // put the executed $stmt value into results variable
+            $result = mysqli_stmt_get_result($stmt);
+            // use value of num_rows returned to $results variable to check if email is already used by an existing account or no 
+            if ($result->num_rows > 0) {
+                $errors[] = "Email is already linked to an account";
+            }
+        }
     }
 
     // Password validation
@@ -60,24 +98,22 @@
         exit;
     }
 
-
     // Hash the password before storing
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    // Use prepared statements to prevent SQL injection
-    $stmt = $db->prepare("INSERT INTO accounts (username, password, email) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $username, $hashedPassword, $email);
+    // Inserting the account data into the accounts table after succesful verifications
+    $sql = "INSERT INTO accounts (username, password, email) VALUES (? , ?, ?);";
+    $stmt = mysqli_stmt_init($db);
 
-    if ($stmt->execute()) {
-        // Registration successful, redirect to login
-        header("Location: login.php");
-        exit;
-    } else {
-        // Registration failed and show error to the user
-        echo "<script>
-            alert('Registration failed. Please try again.');
-            location.href='registration.php';
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        echo"<script>
+        alert('Registration failed. Please try again.');
+        location.href = 'registration.php;
         </script>";
-        exit;
+    }
+    else {
+        mysqli_stmt_bind_param($stmt, "sss", $username, $hashedPassword, $email);
+        mysqli_stmt_execute($stmt);
+        header("Location: login.php");
     }
 ?>
