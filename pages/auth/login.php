@@ -17,7 +17,7 @@
             <a href="#"><ion-icon name="close-outline"></ion-icon></a>
         </span>
 
-        <form action="#" class="login-form" autocomplete="off">
+        <form action="login_submit.php" method = "POST" class="login-form" autocomplete="off">
             <h2>Login</h2>
             <div class="input-box">
                 <input type="text" class="input-field" name="email" required>

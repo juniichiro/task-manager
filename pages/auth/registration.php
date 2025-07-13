@@ -15,7 +15,7 @@
         <span class="icon-close">
                 <a href="#"><ion-icon name="close-outline"></ion-icon></a>  
         </span>
-        <form action="#" class="registration-form" autocomplete="off">
+        <form action="registration_submit.php" method = "POST" class="registration-form" autocomplete="off">
             <h2>Register</h2>
                 <div class="input-box">
                     <input type="text" class="input-field" name="username" required>

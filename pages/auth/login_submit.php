@@ -1,9 +1,9 @@
 <?php
-session_start();
-require "includes/dbconnection.php";
+// session_start();
+require "/xampp/htdocs/task-manager/includes/dbconnection.php";
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+$email = $_POST["email"];
+$password = $_POST["password"];
 
 
 

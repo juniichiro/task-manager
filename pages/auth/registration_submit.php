@@ -1,12 +1,13 @@
 <?php
     // Include database connection
-    require "includes/dbconnection.php";
+    require "/xampp/htdocs/task-manager/includes/dbconnection.php";
 
     // Sanitize and fetch POST inputs
     $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
     $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
     $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
     $confirmpassword = filter_input(INPUT_POST, "confPassword", FILTER_SANITIZE_SPECIAL_CHARS);
+
 
     // Initialize errors array
     $errors = [];
