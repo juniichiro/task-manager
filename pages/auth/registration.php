@@ -6,14 +6,14 @@
 
 
     if(isset($_SESSION['logged_in']) == TRUE){
-        header("Location:#");
+        header("Location:#"); 
     }
 
 ?>
     <link rel="stylesheet" href="auth.css">
     <div class="wrapper">
         <span class="icon-close">
-                <a href="blank.html"><ion-icon name="close-outline"></ion-icon></a>  
+                <a href="#"><ion-icon name="close-outline"></ion-icon></a>  
         </span>
         <form action="#" class="registration-form" autocomplete="off">
             <h2>Register</h2>

@@ -54,7 +54,7 @@
     if (!empty($errors)) {
         echo "<script>
             alert('".implode("\\n", $errors)."');
-            location.href='register.php';
+            location.href='registration.php';
         </script>";
         exit;
     }
@@ -75,7 +75,7 @@
         // Registration failed and show error to the user
         echo "<script>
             alert('Registration failed. Please try again.');
-            location.href='register.php';
+            location.href='registration.php';
         </script>";
         exit;
     }

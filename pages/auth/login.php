@@ -14,7 +14,7 @@
     <div class="wrapper">
         <!-- LOGIN FORM -->
         <span class="icon-close">
-            <a href="blank.html"><ion-icon name="close-outline"></ion-icon></a>
+            <a href="#"><ion-icon name="close-outline"></ion-icon></a>
         </span>
 
         <form action="#" class="login-form" autocomplete="off">
