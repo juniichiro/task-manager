@@ -147,6 +147,15 @@ body{
     font-size: 20px;
 }
 
+/* SWITCH FORM */
+.switch-form{
+    text-align: center;
+}
+.switch-form a{
+    font-weight: 500;
+}
+
+
 
 .wrapper .icon-close{
     position: absolute;
