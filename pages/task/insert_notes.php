@@ -1,5 +1,5 @@
 <?php
-require "/xampp/htdocs/task-manager/includes/dbconnection.php";
+require "../../includes/dbconnection.php";
 
 $task_id = $_POST['task_id'];
 $note_title = filter_input (INPUT_POST, "note_title", 

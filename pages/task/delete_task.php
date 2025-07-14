@@ -1,5 +1,5 @@
 <?php
-    require "includes/dbconnection.php";
+    require "../../includes/dbconnection.php";
     $id = $_GET['itid'];
 
     $query = $db->query("DELETE FROM noteslist WHERE list_id = $id");

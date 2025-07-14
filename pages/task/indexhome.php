@@ -1,6 +1,6 @@
 <?php 
-include "/xampp/htdocs/task-manager/includes/header.php";
-require "/xampp/htdocs/task-manager/includes/dbconnection.php";
+include "../../includes/header.php";
+require "../../includes/dbconnection.php";
 
 $query = $db->query("SELECT * from task");
 $notesquery = $db->query("SELECT * from notes");

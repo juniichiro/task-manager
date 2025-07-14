@@ -1,5 +1,5 @@
 <?php
-require "/xampp/htdocs/task-manager/includes/dbconnection.php";
+require "../../includes/dbconnection.php";
 
 $list= $_POST['task_name'];
 
