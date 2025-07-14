@@ -24,7 +24,7 @@ else {
     <?php while($result = $query->fetch_assoc()) { ?>
 
     <div class='boxcontainer' id='container_<?php echo $result['task_id']; ?>'>
-        <button type='button' id='taskbtn_<?php echo $result['task_id']; ?>' onclick='editTask(<?php echo $result['list_ID']; ?>)'>
+        <button type='button' id='taskbtn_<?php echo $result['task_id']; ?>' onclick='editTask(<?php echo $result['task_id']; ?>)'>
         <?php echo $result['task_name']; ?>
         </button>
 
