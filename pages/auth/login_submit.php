@@ -34,7 +34,9 @@ else {
         else if ($pwdCheck == true) {
             // session_start();
             // $_SESSION['logged_in'] = true;
-            header("Location:tian.php");
+            echo "<script>
+            location.href='../task/indexhome.php';
+            </script>";
         }
         else {
             echo "<script>
