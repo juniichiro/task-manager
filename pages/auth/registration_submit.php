@@ -1,6 +1,6 @@
 <?php
     // Include database connection
-    require "/xampp/htdocs/task-manager/includes/dbconnection.php";
+    require "../../includes/dbconnection.php";
 
     // Sanitize and fetch POST inputs
     $username = $_POST['username'];

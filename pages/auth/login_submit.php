@@ -1,5 +1,5 @@
 <?php
-require "/xampp/htdocs/task-manager/includes/dbconnection.php";
+require "../../includes/dbconnection.php";
 
 $email = $_POST["email"];
 $password = $_POST["password"];
