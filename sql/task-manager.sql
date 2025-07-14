@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2025 at 05:13 PM
+-- Generation Time: Jul 14, 2025 at 03:13 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -45,15 +45,46 @@ INSERT INTO `accounts` (`user_id`, `username`, `password`, `email`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sample`
+-- Table structure for table `notes`
 --
 
-CREATE TABLE `sample` (
-  `test` int(11) DEFAULT NULL,
-  `test1` int(11) DEFAULT NULL,
-  `test2` int(11) DEFAULT NULL,
-  `test3` int(11) DEFAULT NULL
+CREATE TABLE `notes` (
+  `notes_id` int(255) NOT NULL,
+  `notes_title` varchar(1000) NOT NULL,
+  `notes_description` mediumtext NOT NULL,
+  `task_id` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `notes`
+--
+
+INSERT INTO `notes` (`notes_id`, `notes_title`, `notes_description`, `task_id`) VALUES
+(2, 'test', 'test', 1),
+(7, 'test', 'test', 1),
+(8, '2', '2', 2),
+(9, '1', '1', 2),
+(10, 'test', 'test', 2),
+(11, 'testt', 'testt', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `task`
+--
+
+CREATE TABLE `task` (
+  `task_id` int(255) NOT NULL,
+  `task_name` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `task`
+--
+
+INSERT INTO `task` (`task_id`, `task_name`) VALUES
+(1, 'test'),
+(2, 'teste');
 
 --
 -- Indexes for dumped tables
@@ -66,6 +97,19 @@ ALTER TABLE `accounts`
   ADD PRIMARY KEY (`user_id`);
 
 --
+-- Indexes for table `notes`
+--
+ALTER TABLE `notes`
+  ADD PRIMARY KEY (`notes_id`) USING BTREE,
+  ADD KEY `task_id` (`task_id`);
+
+--
+-- Indexes for table `task`
+--
+ALTER TABLE `task`
+  ADD PRIMARY KEY (`task_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -74,6 +118,28 @@ ALTER TABLE `accounts`
 --
 ALTER TABLE `accounts`
   MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `notes`
+--
+ALTER TABLE `notes`
+  MODIFY `notes_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `task`
+--
+ALTER TABLE `task`
+  MODIFY `task_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `notes`
+--
+ALTER TABLE `notes`
+  ADD CONSTRAINT `notes_ibfk_1` FOREIGN KEY (`task_id`) REFERENCES `task` (`task_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
