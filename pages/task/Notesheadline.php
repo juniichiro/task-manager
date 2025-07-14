@@ -1,15 +1,17 @@
 <?php 
-$notesquery = $db->query("SELECT * FROM noteslist WHERE list_id = " . $result['list_ID']);
-if (isset($_GET['insert_notes']) && $_GET['list_id'] == $result['list_ID']) { ?>
+
+$notesquery = $db->query("SELECT * FROM notes WHERE task_id = " . $result['task_id']);
+
+if (isset($_GET['insert_notes']) && $_GET['task_id'] == $result['task_id']) { ?>
     <div class="box_choicecontainer">
         <form method="post" action="insert_notes.php">
-            <input type="hidden" name="inotes" value="<?php echo $result['list_ID']; ?>">
+            <input type="hidden" name="task_id" value="<?php echo $result['task_id']; ?>">
 
             <div class="inputheadline">
-                <input type="text" name="Notes_title" placeholder="Enter note headline" required><br>
+                <input type="text" name="note_title" placeholder="Enter note headline" required><br>
             </div>
             <div class="inputheadline">
-                <input type="text" name="N_Desc" placeholder="Enter Description" required><br>
+                <input type="text" name="note_descrip" placeholder="Enter Description" required><br>
             </div>
             <div class="buttoncontainers">
                 <input type="submit" class="btn btn-success">
@@ -20,14 +22,16 @@ if (isset($_GET['insert_notes']) && $_GET['list_id'] == $result['list_ID']) { ?>
 } else {
 ?>
 <?php 
-while($notes = $notesquery->fetch_assoc()) { 
+    while ($notes = $notesquery->fetch_assoc()) { 
 ?>
     
-     <a href='view_notes.php?list_id<?php echo $result['list_ID'];?>'><div class="boxcontainer"><?php echo $notes['Notes_title']; ?></div></a>
+     <a href='view_notes.php?task_id<?php echo $notes['task_id'];?>'><div class="boxcontainer"><?php echo $notes['notes_title']; ?></div></a>
      
 <?php } ?>
 <div class="boxtask_container">
-         <a href='indexhome.php?insert_notes&list_id=<?php echo $result['list_ID']; ?>' class='task'>Add Notes</a>
+         <a href='indexhome.php?insert_notes&task_id=<?php echo $result['task_id']; ?>' class='task'>
+            Add Notes
+        </a>
      </div>
 
 <?php

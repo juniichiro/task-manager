@@ -1,9 +1,12 @@
-<?php include("includes/header.php");
-require "includes/dbconnection.php";
+<?php 
+include "/xampp/htdocs/task-manager/includes/header.php";
+require "/xampp/htdocs/task-manager/includes/dbconnection.php";
 
-$query = $db->query("SELECT * from tasklist");
-$notesquery = $db->query("SELECT * from noteslist");
+$query = $db->query("SELECT * from task");
+$notesquery = $db->query("SELECT * from notes");
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +14,7 @@ $notesquery = $db->query("SELECT * from noteslist");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <script src="assets/js/Functions.js"></script>
+    <script src="/xampp/htdocs/task-manager/assets/js/Functions.js"></script>
 </head>
 <body>
     <div class="maincontainer">
