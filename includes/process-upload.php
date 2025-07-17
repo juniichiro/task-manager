@@ -1,6 +1,6 @@
 <?php 
 
-$filetype = "image";
+require "dbconnection.php";
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     // can be page for where the file upload was initiated
@@ -12,9 +12,9 @@ if (empty($_FILES)) {
     header("Location: file-upload.php");
 }
 
-if ($_FILES[$filetype]["error"] !== UPLOAD_ERR_OK) {
+if ($_FILES['file']["error"] !== UPLOAD_ERR_OK) {
     
-    switch ($_FILES["file"]["error"]) {
+    switch ($_FILES['file']["error"]) {
         case UPLOAD_ERR_PARTIAL:
             // popup trigger nalang, pero tsaka na pag gets ko na js non (temp lang muna to)
             header("Location: file-upload.php");
@@ -41,33 +41,24 @@ if ($_FILES[$filetype]["error"] !== UPLOAD_ERR_OK) {
 } 
 
 // file size restriction
-if ($_FILES[$filetype]["size"] > 25600000) {
+if ($_FILES['file']["size"] > 25600000) {
     exit ("Files can be no more than 25 MB");
 }
 
 // getting file types
 $finfo = new finfo (FILEINFO_MIME_TYPE);
 // gets the file type by looking at the tmp_name arrays in $_FILES
-$mime_type = $finfo->file($_FILES[$filetype]["tmp_name"]);
+$mime_type = $finfo->file($_FILES['file']["tmp_name"]);
 // array for valid file types accepted
 
-if ($filetype == "image") {
-    $mime_types = ["image/gif", "image/png", "image/jpeg"];
-    // checks if file type of uploaded file is found in the array
-    if ( ! in_array($mime_type, $mime_types)) {
-        exit ("Invalid File Type.");
-    }
-}
-if ($filetype == "file") {
-    $mime_types = ["application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/pdf"];
-        // checks if file type of uploaded file is found in the array
-        if ( ! in_array($mime_type, $mime_types)) {
-            exit ("Invalid File Type.");
-    }
+$mime_types = ["image/gif", "image/png", "image/jpeg"];
+
+if( ! in_array($mime_type, $mime_types)) {
+    exit("Invalid file type");
 }
 
 // moving the uploaded file from the temporary folder to the uploads directory
-$pathinfo = pathinfo($_FILES[$filetype]["name"]);
+$pathinfo = pathinfo($_FILES['file']["name"]);
 // separates the filename from the extension
 $base = $pathinfo["filename"];
 // checks for filenames that can be similar to directories as filenames
@@ -83,14 +74,29 @@ $i = 1;
 while (file_exists($destination)) {
 
     $filename = $base . "($i)." .  $pathinfo["extension"];
-    $destination = "/xampp/htdocs/task-manager/assets/uploads/" . $filename;
+    $destination = "../assets/uploads/" . $filename;
 
     $i++;
 }
 
-if ( ! move_uploaded_file($_FILES[$filetype]["tmp_name"], $destination)) {
+if ( ! move_uploaded_file($_FILES['file']["tmp_name"], $destination)) {
     exit ("File can't be moved.");
 }
+
+$sql = "INSERT INTO upload (file_name, file_path) VALUES (? , ?);";
+$stmt = mysqli_stmt_init($db);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        echo"<script>
+        alert('SQL Error');
+        location.href = 'registration.php;
+        </script>";
+    }
+    else {
+        mysqli_stmt_bind_param($stmt, "ss", $filename, $destination);
+        mysqli_stmt_execute($stmt);
+        header("Location: login.php");
+    }
 
 echo ("File uploaded succesfully");
 ?>
