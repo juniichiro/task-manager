@@ -1,5 +1,5 @@
 <?php 
-
+require "/xampp/htdocs/task-manager/includes/dbconnection.php";
 $notesquery = $db->query("SELECT * FROM notes WHERE task_id = " . $result['task_id']);
 
 if (isset($_GET['insert_notes']) && $_GET['task_id'] == $result['task_id']) { ?>
@@ -25,7 +25,7 @@ if (isset($_GET['insert_notes']) && $_GET['task_id'] == $result['task_id']) { ?>
     while ($notes = $notesquery->fetch_assoc()) { 
 ?>
     
-     <a href='view_notes.php?task_id<?php echo $notes['task_id'];?>'><div class="boxcontainer"><?php echo $notes['notes_title']; ?></div></a>
+     <a href='view_notes.php?notes_id=<?php echo $notes['notes_id']; ?>'><div class="boxcontainer"><?php echo $notes['notes_title']; ?></div></a>
      
 <?php } ?>
 <div class="boxtask_container">

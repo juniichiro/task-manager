@@ -4,7 +4,7 @@ require "../../includes/dbconnection.php";
 $task_id = $_POST['task_id'];
 $note_title = filter_input (INPUT_POST, "note_title", 
                            FILTER_SANITIZE_SPECIAL_CHARS);
-$note_desc= filter_input (INPUT_POST, "note_title", 
+$note_descrip = filter_input (INPUT_POST, "note_descrip", 
                            FILTER_SANITIZE_SPECIAL_CHARS);
 
     // prepared statement
@@ -18,7 +18,7 @@ $note_desc= filter_input (INPUT_POST, "note_title",
 
     else {
         // binds values into placeholders
-        mysqli_stmt_bind_param($stmt, "sss", $task_id, $note_title, $note_desc);
+        mysqli_stmt_bind_param($stmt, "sss", $task_id, $note_title, $note_descrip);
         // execute prepared statement
         mysqli_stmt_execute($stmt);
         // put into $result variable the result of executed prepared statement
