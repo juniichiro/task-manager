@@ -6,7 +6,7 @@
 
 
     if(isset($_SESSION['logged_in']) == TRUE){
-        header("Location:#"); 
+        header("Location:../task/indexhome.php"); 
     }
 
 ?>
