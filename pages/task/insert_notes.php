@@ -1,7 +1,7 @@
 <?php
 require "../../includes/dbconnection.php";
-session_start();
 
+session_start();
 
 $task_id = $_POST['task_id'];
 $user_id = $_SESSION['user_id'];

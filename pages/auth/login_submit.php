@@ -1,8 +1,10 @@
 <?php
 require "../../includes/dbconnection.php";
 
+session_start();
 $email = $_POST["email"];
 $password = $_POST["password"];
+
 
 // creating a prepared statement
 $sql = "SELECT * FROM accounts WHERE username = ? OR email = ?;";
@@ -32,8 +34,7 @@ else {
 
         }
         else if ($pwdCheck == true) {
-            session_start();
-            $_SESSION['logged_in'] = true;
+            $_SESSION['logged_in'] = TRUE;
             $_SESSION['user_id'] = $row['user_id'];
             echo "<script>
             location.href='../task/indexhome.php';

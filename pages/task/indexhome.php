@@ -5,7 +5,7 @@ require "../../includes/dbconnection.php";
 session_start();
 
 if(isset($_SESSION['logged_in']) == FALSE){
-        header("Location: ../auth/login.php");
+        header("Location: ../../auth/login.php");
 }
 
 $user_id = $_SESSION['user_id'];

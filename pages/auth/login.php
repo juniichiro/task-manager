@@ -3,8 +3,6 @@
     include "../../includes/header.php";
     require "../../includes/dbconnection.php";
 
-
-
     if(isset($_SESSION['logged_in']) == TRUE){
         header("Location: ../task/indexhome.php");
     }
