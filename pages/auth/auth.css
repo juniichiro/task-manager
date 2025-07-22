@@ -80,7 +80,7 @@ body::after {
 }
 /* FORM HEADER */
 
-.login-form h2, .registration-form h2 {
+.login-form h2, .registration-form h2 , .change-pass-form h2, .verify-form h2{
     font-size: 2em;
     width: 100%;
     margin-bottom: 50px;
