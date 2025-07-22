@@ -33,7 +33,7 @@
                     <a href="#">Forgot password?</a>
                 </div>
             </div>
-            <div class="input-box"></div>
+            <div class="input-box">
                 <button class="btn-submit" id="SignInBtn">Sign In <i class='bx bx-log-in'></i></button>
             </div>
             <div class="switch-form">
