@@ -7,7 +7,8 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="style.css">
-    <title>Task Management</title>
+    <link rel="icon" type="image/x-icon" href="../../assets/images/flogo.png">
+    <title>Queuepal</title>
 </head>
 
 </head>
