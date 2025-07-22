@@ -15,7 +15,7 @@
             <a href="../front/front.html"><ion-icon name="close-outline"></ion-icon></a>
         </span>
 
-        <form action="#" method = "POST" class="verify-form" autocomplete="off">
+        <form action="send-password-reset.php" method = "POST" class="verify-form" autocomplete="off">
             <h2>Verify Email</h2>
 
             <div class="input-box">
@@ -26,7 +26,7 @@
             <div class="form-cols">
                 <div class="col-1"></div>
                 <div class="col-2"> 
-                    <a href="../auth/login.php">Back to Login</a>
+                    <a href="login.php">Back to Login</a>
                 </div>
             </div>
 

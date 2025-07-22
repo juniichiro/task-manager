@@ -30,7 +30,7 @@
             <div class="form-cols">
                 <div class="col-1"></div>
                 <div class="col-2"> 
-                    <a href="../auth/verify_email.php">Forgot password?</a>
+                    <a href="verify_email.php">Forgot password?</a>
                 </div>
             </div>
             <div class="input-box">

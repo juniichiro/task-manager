@@ -9,7 +9,6 @@ if(isset($_SESSION['logged_in']) == FALSE){
 }
 
 $user_id = $_SESSION['user_id'];
-
 $query = $db->query("SELECT * from task WHERE user_id = $user_id");
 $notesquery = $db->query("SELECT * from notes WHERE user_id = $user_id");
 
@@ -35,7 +34,6 @@ $notesquery = $db->query("SELECT * from notes WHERE user_id = $user_id");
         <div class="container-fluid">
         <a href="../auth/logout.php">Logout</a>
         <div class="row">
-
     </div>
 </body>
 </html>

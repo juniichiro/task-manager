@@ -6,7 +6,7 @@
     $username = $_POST['username'];
     $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
     $password = $_POST['password'];
-    $confirmpassword = $_POST['password'];
+    $confirmpassword = $_POST['confPassword'];
 
 
     // Initialize errors array
