@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 21, 2025 at 03:01 PM
+-- Generation Time: Jul 22, 2025 at 05:42 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -29,18 +29,21 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `accounts` (
   `user_id` int(255) NOT NULL,
-  `username` varchar(10) NOT NULL,
-  `password` varchar(200) NOT NULL,
-  `email` varchar(100) NOT NULL
+  `username` varchar(128) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `reset_token_hash` varchar(64) DEFAULT NULL,
+  `reset_token_expires_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `accounts`
 --
 
-INSERT INTO `accounts` (`user_id`, `username`, `password`, `email`) VALUES
-(5, 'test', '$2y$10$b7jwRwJxiexvlzjoLhZzWu3ionfpJMJ3y3bs158rCnRdZRSpijbi2', 'test@email.com'),
-(9, 'nerner', '$2y$10$4oSeZ08dRFPEmvFWCTsqzuyhPllxAKPncz1616zToTVbIiOkvzSI2', 'nerner@email.com');
+INSERT INTO `accounts` (`user_id`, `username`, `password`, `email`, `reset_token_hash`, `reset_token_expires_at`) VALUES
+(5, 'test', '$2y$10$b7jwRwJxiexvlzjoLhZzWu3ionfpJMJ3y3bs158rCnRdZRSpijbi2', 'test@email.com', NULL, NULL),
+(9, 'nerner', '$2y$10$4oSeZ08dRFPEmvFWCTsqzuyhPllxAKPncz1616zToTVbIiOkvzSI2', 'nerner@email.com', NULL, NULL),
+(11, 'rjbrts', '$2y$10$A9hhQAaQfUjPS.RlcoF/5OyFy3gZtAImdjaTJjx7WFeE3d5DryaHy', 'britosranieljohn@gmail.com', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -111,7 +114,9 @@ INSERT INTO `upload` (`file_id`, `file_name`, `file_path`) VALUES
 -- Indexes for table `accounts`
 --
 ALTER TABLE `accounts`
-  ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `reset_token_hash` (`reset_token_hash`);
 
 --
 -- Indexes for table `notes`
@@ -142,7 +147,7 @@ ALTER TABLE `upload`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `notes`
