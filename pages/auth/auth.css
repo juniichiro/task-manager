@@ -30,12 +30,39 @@ a:hover{
     text-decoration: underline;
 }
 
+body::before {
+    content: "";
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../assets/images/dsb.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    filter: blur(8px) brightness(0.9);
+    z-index: -2;
+    transform: scale(1.02); 
+}
+
 body{
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: var(--background-color);
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: -1;
 }
 
 /* WRAPPER */
@@ -75,7 +102,7 @@ body{
     font-size: 16px;
     background: transparent;
     color: var(--black-color);
-    padding: 0 20px;
+    padding: 0 60px 0 30px;
     border: 1px solid var(--input-border-color);
     border-radius: 30px;
     outline: none;
@@ -182,15 +209,14 @@ body{
     color: var(--primary-color);
 }
 
-
-.wrapper .icon-close{
+.icon-close a{
     position: absolute;
     top: 0;
     right: 0;
-    width: 60px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     font-size: 2em;
-    color: #fbfbfb;
+    color: var(--secondary-color);
     display: flex;
     justify-content: center;
     align-items: center;
