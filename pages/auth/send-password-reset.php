@@ -38,7 +38,7 @@ $token_expiry = date("Y-m-d H:i:s", time() + 60 * 5);
         }
         echo"<script>
         alert('Message sent, please check your inbox.');
-        location.href = 'login.php';
+        location.href = '../front/front.php.php';
         </script>";
     }
 ?>
