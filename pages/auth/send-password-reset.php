@@ -27,13 +27,8 @@ $token_expiry = date("Y-m-d H:i:s", time() + 60 * 5);
             $mail->setFrom("queuepality@gmail.com", "Queuepal");
             $mail->addAddress($email);
             $mail->Subject = "Password Reset";
-            $mail->Body = <<<END
-
-                Click <a href="http://localhost/task-manager/pages/auth/change-password.php?token=$token">here</a>
-                to reset your password.
-
-                END;
-
+            $mail->Body = include "../../includes/email-content.php";
+            
             try {
                 $mail->send();
             } catch (Exception $e) {
