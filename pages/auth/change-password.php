@@ -1,11 +1,6 @@
 <?php 
-    session_start();
     include "../../includes/header.php";
     require "../../includes/dbconnection.php";
-
-    if(isset($_SESSION['logged_in']) == TRUE){
-        header("Location: ../task/indexhome.php");
-    }
 
     $token = $_GET["token"];
     $token_hash = hash("sha256", $token);
@@ -43,7 +38,7 @@
 
         <form action="process-change-password.php" method = "POST" class="change-pass-form" autocomplete="off">
             <h2>Change Password</h2>
-            
+
             <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">
             
             <div class="input-box">

@@ -1,6 +1,10 @@
 <?php
-
+session_start();
 require "../../includes/dbconnection.php";
+
+if(isset($_SESSION['logged_in']) == TRUE){
+        header("Location: ../task/indexhome.php");
+}
 
 $email = $_POST["email"];
 
@@ -38,7 +42,7 @@ $token_expiry = date("Y-m-d H:i:s", time() + 60 * 5);
         }
         echo"<script>
         alert('Message sent, please check your inbox.');
-        location.href = '../front/front.php.php';
+        location.href = '../front/front.html';
         </script>";
     }
 ?>
