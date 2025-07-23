@@ -33,7 +33,7 @@
     <div class="wrapper">
         <!-- CHANGE PASSWORD FORM -->
         <span class="icon-close">
-            <a href="../front/front.html"><ion-icon name="close-outline"></ion-icon></a>
+            <a href="../front/front.php"><ion-icon name="close-outline"></ion-icon></a>
         </span>
 
         <form action="process-change-password.php" method = "POST" class="change-pass-form" autocomplete="off">

@@ -1,3 +1,13 @@
+<?php
+    session_start();
+
+
+if(isset($_SESSION['logged_in']) == TRUE){
+        header("Location: ../task/indexhome.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,7 +49,7 @@
                 <a href="../auth/registration.php" class="btn btn-primary">Get Started - It's Free</a>
             </div>
             <div class="home-image">
-                <img src="../../assets/images/dashboard.png" alt="Queuepal Dashboard">
+                <img src="../../assets/images/display.png" alt="Queuepal Dashboard">
             </div>
         </div>
     </section>
@@ -61,8 +71,8 @@
                                 <i class="uil uil-inbox"></i>
                             </div>
                             <div class="tab-text">
-                                <h3>Inbox</h3>
-                                <p>Capture your to-dos from anywhere, anytime. Everything starts here.</p>
+                                <h3>Digitalized Notes</h3>
+                                <p>Capture your notes anywhere, anytime. Everything starts here.</p>
                             </div>
                         </div>
                     </div>
@@ -73,8 +83,8 @@
                                 <i class="uil uil-apps"></i>
                             </div>
                             <div class="tab-text">
-                                <h3>Boards</h3>
-                                <p>Visualize your workflow from "to-do" to "done" with our kanban boards.</p>
+                                <h3>Visual Boards</h3>
+                                <p>Visualize your workflow from "to-do tasks" to "notes" with our kanban boards.</p>
                             </div>
                         </div>
                     </div>
@@ -85,36 +95,33 @@
                                 <i class="uil uil-schedule"></i>
                             </div>
                             <div class="tab-text">
-                                <h3>Planner</h3>
-                                <p>Schedule and prioritize your tasks to make time for what matters most.</p>
+                                <h3>Multiple notes</h3>
+                                <p>Organize your thoughts and ideas with dedicated notes for each task.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="feature-display">
-                    <!-- Inbox Image Holder -->
                     <div class="image-holder active" id="inbox-holder">
                         <div class="image-container">
-                            <img src="assets/images/inbox-feature.png" alt="Inbox Feature" class="feature-image">
+                            <img src="../../assets/images/note.jpg" alt="Digitalized Feature" class="feature-image">
                         </div>
-                        <p class="image-caption">Capture tasks quickly with our intuitive inbox</p>
+                        <p class="image-caption">Capture tasks and notes quickly </p>
                     </div>
 
-                    <!-- Boards Image Holder -->
                     <div class="image-holder" id="boards-holder">
                         <div class="image-container">
-                            <img src="assets/images/boards-feature.png" alt="Boards Feature" class="feature-image">
+                            <img src="../../assets/images/stick.jpg" alt="Boards Feature" class="feature-image">
                         </div>
-                        <p class="image-caption">Organize work visually with customizable boards</p>
+                        <p class="image-caption">Organize work visually with visual boards</p>
                     </div>
 
-                    <!-- Planner Image Holder -->
                     <div class="image-holder" id="planner-holder">
                         <div class="image-container">
-                            <img src="assets/images/planner-feature.png" alt="Planner Feature" class="feature-image">
+                            <img src="../../assets/images/think.jpg" alt="Multiple Notes" class="feature-image">
                         </div>
-                        <p class="image-caption">Plan your week with our drag-and-drop scheduler</p>
+                        <p class="image-caption">Add your thoughts and ideas for each task</p>
                     </div>
                 </div>
             </div>
@@ -125,31 +132,30 @@
     <section class="testimonials" id="testimonials">
         <div class="container">
             <div class="section-header">
-                <h2>Trusted by Productive Teams</h2>
-                <p>Join thousands of professionals who have transformed their workflow with Queuepal</p>
+                <h2>Proven and Tested</h2>
+                <p>Join thousands of people who have transformed their workflow with Queuepal</p>
             </div>
 
             <div class="testimonial-grid">
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"Queuepal has completely changed how our team manages projects. We've
+                    <p class="testimonial-text">"Queuepal has completely changed how I manage projects. I've
                         seen a 40% increase in productivity since switching."</p>
                     <div class="testimonial-author">
-                        <img src="assets/images/testimonial1.jpg" alt="Alfred Calimbo" class="author-avatar">
+                        <img src="../../assets/images/Johnny.jpg" alt="Johnny Makasalanan" class="author-avatar">
                         <div class="author-info">
-                            <h4>Alfred Calimbo</h4>
-                            <p>Marketing Director, TechCorp</p>
+                            <h4>Johnny Makasalanan</h4>
+                            <p>Marketing Assistant, Cybersafe</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"The intuitive interface makes it easy for our entire team to stay on
-                        the same page. Onboarding was a breeze!"</p>
+                    <p class="testimonial-text">"The intuitive interface makes it easy for me to stay focused. Onboarding was a breeze! Overall, it's a great help!"</p>
                     <div class="testimonial-author">
-                        <img src="assets/images/testimonial2.jpg" alt="Michelle Navales" class="author-avatar">
+                        <img src="../../assets/images/bronny.png" alt="Bronny James" class="author-avatar">
                         <div class="author-info">
-                            <h4>Michelle Navales</h4>
-                            <p>Product Manager, StartupX</p>
+                            <h4>Bronny James</h4>
+                            <p>Basketball player</p>
                         </div>
                     </div>
                 </div>
@@ -158,9 +164,9 @@
                     <p class="testimonial-text">"I've tried countless task managers, but Queuepal is the first one that
                         actually helped me stay organized long-term."</p>
                     <div class="testimonial-author">
-                        <img src="assets/images/testimonial3.jpg" alt="Ramir Ramirez" class="author-avatar">
+                        <img src="../../assets/images/Tina Moran.jpg" alt="Tina Moran" class="author-avatar">
                         <div class="author-info">
-                            <h4>Ramir Ramirez</h4>
+                            <h4>Tina Moran</h4>
                             <p>Freelance Designer</p>
                         </div>
                     </div>
