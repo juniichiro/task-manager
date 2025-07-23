@@ -31,6 +31,10 @@ if ($notequery && $notequery->num_rows > 0) {
                 if ($upload && $upload->num_rows > 0) {
                     $row = $upload->fetch_assoc();
                     echo '<img src="' . htmlspecialchars($row['file_path']) . '" class="image">';
+                    echo '<form action="../../includes/delete_upload.php" method="POST" style="margin-top:10px;">
+                        <input type="hidden" name="note_id" value="' . $note_id . '">
+                        <button type="submit" class="btn btn-danger">Remove Image</button>
+                    </form>';
                 }
                 ?>
                 <h2><?php echo htmlspecialchars($note['notes_title']); ?></h2>
