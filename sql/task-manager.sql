@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2025 at 05:42 PM
+-- Generation Time: Jul 23, 2025 at 11:59 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,7 +43,7 @@ CREATE TABLE `accounts` (
 INSERT INTO `accounts` (`user_id`, `username`, `password`, `email`, `reset_token_hash`, `reset_token_expires_at`) VALUES
 (5, 'test', '$2y$10$b7jwRwJxiexvlzjoLhZzWu3ionfpJMJ3y3bs158rCnRdZRSpijbi2', 'test@email.com', NULL, NULL),
 (9, 'nerner', '$2y$10$4oSeZ08dRFPEmvFWCTsqzuyhPllxAKPncz1616zToTVbIiOkvzSI2', 'nerner@email.com', NULL, NULL),
-(11, 'rjbrts', '$2y$10$A9hhQAaQfUjPS.RlcoF/5OyFy3gZtAImdjaTJjx7WFeE3d5DryaHy', 'britosranieljohn@gmail.com', NULL, NULL);
+(11, 'rjbrts', '$2y$10$A9hhQAaQfUjPS.RlcoF/5OyFy3gZtAImdjaTJjx7WFeE3d5DryaHy', 'britosranieljohn@gmail.com', '88c9f6663bc76cbc8fa01e36339c52e21a6f7473f9cdf401a3384e38394d50a6', '2025-07-22 20:45:50');
 
 -- --------------------------------------------------------
 
@@ -153,13 +153,13 @@ ALTER TABLE `accounts`
 -- AUTO_INCREMENT for table `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `notes_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `notes_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `task`
 --
 ALTER TABLE `task`
-  MODIFY `task_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `task_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `upload`
