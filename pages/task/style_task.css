@@ -175,24 +175,25 @@ hr{
     text-overflow: ellipsis;
     white-space: nowrap;         /* Prevent line break */
     overflow: hidden; 
-    max-width: 200px; 
+    max-width: 220px; 
 }
 
 
 .boxtasks_wrapper{
     display: flex;
     align-items: flex-start;
-
 }
 
 .boxcontainer{
-    width : 272px;
+    max-width : 290px;
+    overflow: hidden;
     background-color: #f1f2f4;
     margin: 10px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-
-    
+    gap: 20px; /* keeps consistent vertical spacing */
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
 .boxcontainer:hover {
@@ -272,9 +273,11 @@ hr{
     margin: 10px;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     border-radius: 5px;
-    text-overflow: ellipsis;
-    white-space: nowrap;         /* Prevent line break */
-    overflow: hidden; 
+    
+    white-space: pre-wrap; /* preserves line breaks and wraps long text */
+    word-wrap: break-word;  /* prevent text from overflowing */
+    margin-top: 1px;        /* brings description closer to <h3> */    /* Prevent line break */
+
     max-width: 258px; 
     padding: 10px;
     
