@@ -53,6 +53,7 @@ $username = $_SESSION['username'];
 <body>
     <div class="maincontainer">
         <div class="Topcontainer">
+            <div><h1>Welcome, <?php echo $username?></h1></div>
             <div class="tasktitle">
                 <h1>Task List</h1>
             </div>
