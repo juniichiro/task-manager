@@ -53,9 +53,9 @@ $username = $_SESSION['username'];
     <div class="maincontainer">
         <div class="boxmaincontainer">
         <div class="Topcontainer">
-            <h1>Welcome, <?php echo $username?></h1>
-            <h1>Task List</h1>
-            <div class="container-fluid">
+            <div><h1>Welcome, <?php echo $username?></h1></div>
+            <div class="tasktitle"><h1>Task List</h1></div>
+            <div class="Logout">
             <a href="../auth/logout.php">Logout, <?php echo $username?></a>
             <div class="row">
         <div class="Middlecontainer">
