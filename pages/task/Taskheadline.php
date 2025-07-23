@@ -1,8 +1,8 @@
 
 <?php
 
-require "/xampp/htdocs/task-manager/includes/dbconnection.php";
- $query = $db->query("SELECT * FROM task");
+require "../../includes/dbconnection.php";
+$query = $db->query("SELECT * FROM task WHERE user_id = $user_id");
 ?>
 <div class="mainboxtask_container">
     <div class='boxtasks_wrapper'>

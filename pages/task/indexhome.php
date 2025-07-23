@@ -11,32 +11,32 @@ if(isset($_SESSION['logged_in']) == FALSE){
 $user_id = $_SESSION['user_id'];
 $username = $_SESSION['username'];
 
-    $query = "SELECT * FROM task WHERE user_id = ?;";
-    $stmt = mysqli_stmt_init($db);
+    // $query = "SELECT * FROM task WHERE user_id = ?;";
+    // $stmt = mysqli_stmt_init($db);
 
-    if (!mysqli_stmt_prepare($stmt, $query)) {
-        echo"SQL Error";
-    }
-    else {
-        mysqli_stmt_bind_param($stmt, "s", $user_id);
-        mysqli_stmt_execute($stmt);
-        $query = mysqli_stmt_get_result($stmt);
-    }
+    // if (!mysqli_stmt_prepare($stmt, $query)) {
+    //     echo"SQL Error";
+    // }
+    // else {
+    //     mysqli_stmt_bind_param($stmt, "s", $user_id);
+    //     mysqli_stmt_execute($stmt);
+    //     $query = mysqli_stmt_get_result($stmt);
+    // }
 
-// $query = $db->query("SELECT * from task WHERE user_id = $user_id");
-// $notesquery = $db->query("SELECT * from notes WHERE user_id = $user_id");
+$query = $db->query("SELECT * from task WHERE user_id = $user_id");
+$notesquery = $db->query("SELECT * from notes WHERE user_id = $user_id");
 
-    $notesquery = "SELECT * FROM notes WHERE $user_id = ?;";
-    $stmt = mysqli_stmt_init($db);
+    // $notesquery = "SELECT * FROM notes WHERE $user_id = ?;";
+    // $stmt = mysqli_stmt_init($db);
 
-    if (!mysqli_stmt_prepare($stmt, $notesquery)) {
-        echo"SQL Error";
-    }
-    else {
-        mysqli_stmt_bind_param($stmt, "s", $id);
-        mysqli_stmt_execute($stmt); 
-        $notesquery = mysqli_stmt_get_result($stmt);
-    }
+    // if (!mysqli_stmt_prepare($stmt, $notesquery)) {
+    //     echo"SQL Error";
+    // }
+    // else {
+    //     mysqli_stmt_bind_param($stmt, "s", $id);
+    //     mysqli_stmt_execute($stmt); 
+    //     $notesquery = mysqli_stmt_get_result($stmt);
+    // }
 
 ?>
 
@@ -71,6 +71,7 @@ $username = $_SESSION['username'];
             <div class="leftcontainer">
                 <h2 class="header_Text">dashboard</h2>
                 <hr></hr>
+                <h1>Welcome, <?php echo $user_id?>
                 <div><h1>Welcome, <?php echo $username?></h1></div>
                 <p>test1</p>
                 <p>test1</p>
