@@ -1,3 +1,13 @@
+<?php
+    session_start();
+
+
+if(isset($_SESSION['logged_in']) == TRUE){
+        header("Location: ../task/indexhome.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
