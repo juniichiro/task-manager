@@ -1,5 +1,5 @@
 <?php 
-require "/xampp/htdocs/task-manager/includes/dbconnection.php";
+require "../../includes/dbconnection.php";
 $notesquery = $db->query("SELECT * FROM notes WHERE task_id = " . $result['task_id']);
 
 if (isset($_GET['insert_notes']) && $_GET['task_id'] == $result['task_id']) { ?>
