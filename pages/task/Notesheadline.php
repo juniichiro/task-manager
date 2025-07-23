@@ -8,7 +8,7 @@ if (isset($_GET['insert_notes']) && $_GET['task_id'] == $result['task_id']) { ?>
             <input type="hidden" name="task_id" value="<?php echo $result['task_id']; ?>">
 
             <div class="inputheadline">
-                <input type="text" name="note_title" placeholder="Enter note headline" required><br>
+                <input type="text" name="note_title" placeholder="Enter Title" required><br>
             </div>
             <div class="inputheadline">
                 <textarea name="note_descrip" id="Notes_DescText"placeholder="Enter Description" required></textarea><br>

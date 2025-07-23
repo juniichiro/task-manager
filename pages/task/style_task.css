@@ -117,10 +117,6 @@ body {
 
 
 
-
-
-
-
 .Middlecontainer {
     background-color: #039bb6;
     width: 100%;
@@ -134,7 +130,7 @@ body {
     margin: 10px;
     background-color: rgb(109, 17, 17);
     color: white;
-    width: 40%;
+    min-width: 20%;
     padding: 10px;
     box-sizing: border-box;
     height: calc(100% - 20px); 
@@ -171,12 +167,7 @@ hr{
     
 }
 
-.buttontest1{
-    text-overflow: ellipsis;
-    white-space: nowrap;         /* Prevent line break */
-    overflow: hidden; 
-    max-width: 220px; 
-}
+
 
 
 .boxtasks_wrapper{
@@ -213,6 +204,11 @@ hr{
 }
 
 .buttontest1{
+    white-space: normal;           
+    overflow-wrap: anywhere;     
+    word-break: break-word;        
+    max-width: 220px;
+    text-align: left;
     text-decoration: none;
     border: none;
     font-size: 1.2rem;
@@ -244,6 +240,12 @@ hr{
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.boxtask_container:hover {
+    background-color: var(--success-color);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
 .task{
     display: flex;
 }
@@ -273,12 +275,10 @@ hr{
     margin: 10px;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     border-radius: 5px;
-    
     white-space: pre-wrap; /* preserves line breaks and wraps long text */
     word-wrap: break-word;  /* prevent text from overflowing */
     margin-top: 1px;        /* brings description closer to <h3> */    /* Prevent line break */
-
-    max-width: 258px; 
+    max-width: 270px; 
     padding: 10px;
     
 
@@ -304,6 +304,10 @@ hr{
     
 }
 
+.boxnotes_container:hover{
+    background-color: rgba(0, 0, 0, 0.121);
+}
+
 
 
 .mainboxtask_container{
@@ -313,31 +317,32 @@ hr{
 
 .inputheadline{
     padding-left: 10px;
+    padding-right: 10px;
     padding-bottom: 5px;
+    
 
 }
 
 .inputheadline input[type="text"]{
     height: 30px;
-    width: 255px;
+    width: 270px;
+    border-radius: 6px;
+    padding: 10px;
+    border: 1px solid #ccc;
 
 } 
 
 #Notes_DescText {
-    width: 98%;
+    width: 270px;
     min-height: 120px;
-    padding: 9px;
     font-size: 1rem;
+    padding: 10px;
     border-radius: 6px;
+    border: 1px solid #ccc;
     resize: none; /* allow resizing */
 
 }
 
-textarea {
-    resize: none; /* allow resizing */
-    margin: 5px;
-    width: 95%;
-}
 
 .buttoncontainers{
     padding-left: 10px;
@@ -360,6 +365,10 @@ textarea {
     border-radius: 5px;
     cursor: pointer;
 }
+
+
+
+
 
 
 
