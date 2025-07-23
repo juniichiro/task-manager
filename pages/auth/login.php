@@ -19,7 +19,7 @@
             <h2>Login</h2>
             <div class="input-box">
                 <input type="text" class="input-field" name="email" required>
-                <label for="log-email" class="label">Email</label>
+                <label for="log-email" class="label">Username or Email</label>
                 <i class='bx bx-envelope icon'></i>
             </div>
             <div class="input-box">
