@@ -1,0 +1,13 @@
+Ahjin No Moto
+
+Agustin, Ren Ren A.
+Britos, Raniel John T.
+Estabillo, Christian A.
+
+
+User Credential:
+
+User: Admin
+Password: admintest
+
+Note: Can use own gmail accoun to reset password through email link

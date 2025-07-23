@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 23, 2025 at 11:59 AM
+-- Generation Time: Jul 23, 2025 at 05:54 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,7 +43,8 @@ CREATE TABLE `accounts` (
 INSERT INTO `accounts` (`user_id`, `username`, `password`, `email`, `reset_token_hash`, `reset_token_expires_at`) VALUES
 (5, 'test', '$2y$10$b7jwRwJxiexvlzjoLhZzWu3ionfpJMJ3y3bs158rCnRdZRSpijbi2', 'test@email.com', NULL, NULL),
 (9, 'nerner', '$2y$10$4oSeZ08dRFPEmvFWCTsqzuyhPllxAKPncz1616zToTVbIiOkvzSI2', 'nerner@email.com', NULL, NULL),
-(11, 'rjbrts', '$2y$10$A9hhQAaQfUjPS.RlcoF/5OyFy3gZtAImdjaTJjx7WFeE3d5DryaHy', 'britosranieljohn@gmail.com', '88c9f6663bc76cbc8fa01e36339c52e21a6f7473f9cdf401a3384e38394d50a6', '2025-07-22 20:45:50');
+(11, 'rjbrts', '$2y$10$A9hhQAaQfUjPS.RlcoF/5OyFy3gZtAImdjaTJjx7WFeE3d5DryaHy', 'britosranieljohn@gmail.com', '4976467ca1e42a6bab533c6217615ee82ccd01bb10d601fce452449196148cbf', '2025-07-23 14:19:06'),
+(12, 'Admin', '$2y$10$e.EmIECAXwmq8ZFCjll6MuNCCEoL6hsy3ynTWZMZhqm2LHk6eaxgW', 'admin@email.com', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -85,7 +86,9 @@ CREATE TABLE `task` (
 
 INSERT INTO `task` (`task_id`, `task_name`, `user_id`) VALUES
 (1, 'test', 9),
-(3, 'testing123', 5);
+(3, 'testing123', 5),
+(5, 'PHP', 12),
+(6, 'Physics', 12);
 
 -- --------------------------------------------------------
 
@@ -96,15 +99,16 @@ INSERT INTO `task` (`task_id`, `task_name`, `user_id`) VALUES
 CREATE TABLE `upload` (
   `file_id` int(255) NOT NULL,
   `file_name` varchar(1000) NOT NULL,
-  `file_path` varchar(1000) NOT NULL
+  `file_path` varchar(1000) NOT NULL,
+  `notes_id` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `upload`
 --
 
-INSERT INTO `upload` (`file_id`, `file_name`, `file_path`) VALUES
-(1, 'test(2).png', '../assets/uploads/test(2).png');
+INSERT INTO `upload` (`file_id`, `file_name`, `file_path`, `notes_id`) VALUES
+(16, 'fiona.jpg', '../../assets/uploads/fiona.jpg', 7);
 
 --
 -- Indexes for dumped tables
@@ -137,7 +141,8 @@ ALTER TABLE `task`
 -- Indexes for table `upload`
 --
 ALTER TABLE `upload`
-  ADD PRIMARY KEY (`file_id`);
+  ADD PRIMARY KEY (`file_id`),
+  ADD KEY `notesid` (`notes_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -147,7 +152,7 @@ ALTER TABLE `upload`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `notes`
@@ -159,13 +164,13 @@ ALTER TABLE `notes`
 -- AUTO_INCREMENT for table `task`
 --
 ALTER TABLE `task`
-  MODIFY `task_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `task_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `upload`
 --
 ALTER TABLE `upload`
-  MODIFY `file_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `file_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables
@@ -183,6 +188,12 @@ ALTER TABLE `notes`
 --
 ALTER TABLE `task`
   ADD CONSTRAINT `foreign` FOREIGN KEY (`user_id`) REFERENCES `accounts` (`user_id`);
+
+--
+-- Constraints for table `upload`
+--
+ALTER TABLE `upload`
+  ADD CONSTRAINT `notesid` FOREIGN KEY (`notes_id`) REFERENCES `notes` (`notes_id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,5 +1,3 @@
-
-
 <div class="mainboxtask_container">
     <div class='boxtasks_wrapper'>
     <?php while($result = $query->fetch_assoc()) { ?>
