@@ -9,8 +9,34 @@ if(isset($_SESSION['logged_in']) == FALSE){
 }
 
 $user_id = $_SESSION['user_id'];
-$query = $db->query("SELECT * from task WHERE user_id = $user_id");
-$notesquery = $db->query("SELECT * from notes WHERE user_id = $user_id");
+$username = $_SESSION['username'];
+
+    $query = "SELECT * FROM task WHERE user_id = ?;";
+    $stmt = mysqli_stmt_init($db);
+
+    if (!mysqli_stmt_prepare($stmt, $query)) {
+        echo"SQL Error";
+    }
+    else {
+        mysqli_stmt_bind_param($stmt, "s", $user_id);
+        mysqli_stmt_execute($stmt);
+        $query = mysqli_stmt_get_result($stmt);
+    }
+
+// $query = $db->query("SELECT * from task WHERE user_id = $user_id");
+// $notesquery = $db->query("SELECT * from notes WHERE user_id = $user_id");
+
+    $notesquery = "SELECT * FROM notes WHERE $user_id = ?;";
+    $stmt = mysqli_stmt_init($db);
+
+    if (!mysqli_stmt_prepare($stmt, $notesquery)) {
+        echo"SQL Error";
+    }
+    else {
+        mysqli_stmt_bind_param($stmt, "s", $id);
+        mysqli_stmt_execute($stmt); 
+        $notesquery = mysqli_stmt_get_result($stmt);
+    }
 
 ?>
 

@@ -1,4 +1,6 @@
-<?php require "/xampp/htdocs/task-manager/includes/dbconnection.php";
+<?php 
+require "../../includes/dbconnection.php";
+
 
 // Get notes_id from the URL
 $note_id = isset($_GET['notes_id']) ? (int)$_GET['notes_id'] : 0;
