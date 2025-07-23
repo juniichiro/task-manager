@@ -36,6 +36,7 @@ else {
         else if ($pwdCheck == true) {
             $_SESSION['logged_in'] = TRUE;
             $_SESSION['user_id'] = $row['user_id'];
+            $_SESSION['username'] = $row['username'];
             echo "<script>
             location.href='../task/indexhome.php';
             </script>";
