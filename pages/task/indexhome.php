@@ -47,24 +47,31 @@ $username = $_SESSION['username'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style_task.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=add" />
     <script src="../../assets/js/Functions.js"></script>
 </head>
+
 <body>
+        <nav class="navbar">
+        <a href="#" class="logo">Queue<span>pal</span></a>
+        <div class="user-section">
+            <a href="../auth/logout.php" class="btn-logout">
+                <i class="fas fa-sign-out-alt"></i> Logout <?php echo $username?>
+            </a>
+        </div>
+    </nav>
     <div class="maincontainer">
         <div class="Topcontainer">
-            <div><h1>Welcome, <?php echo $username?></h1></div>
             <div class="tasktitle">
                 <h1>Task List</h1>
             </div>
-                <div class="Logout">
-                <a href="../auth/logout.php">Logout, <?php echo $username?></?php></a>
-                </div>
             </div>
         <div class="Middlecontainer">
             <div class="leftcontainer">
                 <h2 class="header_Text">dashboard</h2>
                 <hr></hr>
+                <div><h1>Welcome, <?php echo $username?></h1></div>
                 <p>test1</p>
                 <p>test1</p>
                 <p>test1</p>

@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+body::before {
+    content: "";
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../assets/images/bgimages.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    filter: blur(4px) brightness(0.9);
+    z-index: -2;
+    transform: scale(1.02); 
+}
+
+body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: -1;
+}
+
+.boxcontainer {
+    width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+
+    background-color: rgba(252, 252, 252, 0.989);
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* keeps consistent vertical spacing */
+}
+
+.boxcontainer h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: left;
+}
+
+.boxcontainer h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #333;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.boxcontainer p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    text-align: left;
+    white-space: pre-wrap; /* preserves line breaks and wraps long text */
+    word-wrap: break-word;  /* prevent text from overflowing */
+    margin-top: 1px;        /* brings description closer to <h3> */
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: white;
+    transition: background 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #3498db;
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+}
+
+.boxnotes_header {
+    position: relative;
+    width: 100%;
+    display: flex;
+   
+}
+
+.tasknotes {
+    position: absolute;
+    right: 10px;
+    color: #333;
+    text-decoration: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.tasknotes:hover {
+    color: #ff5f5f;
+}

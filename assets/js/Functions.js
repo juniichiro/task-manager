@@ -12,8 +12,8 @@ function editTask(taskId) {
     <form method='post' action='update.php'>
         <textarea name='task_name' rows='2' cols='30'>${currentText}</textarea>
         <input type='hidden' name='task_ID' value='${taskId}'><br>
-        <button type='submit' class='btn btn-success'>Save</button>
-        <a href='delete_task.php?itid=${taskId}' class='btn btn-danger'>
+        <input type='submit' class='button_edit' value='save'>
+        <a href='delete_task.php?itid=${taskId}' class='button_delete'>
             <span class='glyphicon glyphicon-trash'></span> DELETE
         </a>
     </form>
