@@ -55,12 +55,13 @@ $username = $_SESSION['username'];
         <div class="Topcontainer">
             <h1>Welcome, <?php echo $username?></h1>
             <h1>Task List</h1>
+            <div class="container-fluid">
+            <a href="../auth/logout.php">Logout, <?php echo $username?></a>
+            <div class="row">
         <div class="Middlecontainer">
             <?php include("Taskheadline.php")?>
         </div>  
-        <div class="container-fluid">
-        <a href="../auth/logout.php">Logout, <?php echo $username?></a>
-        <div class="row">
+        
     </div>
 </body>
 </html>
