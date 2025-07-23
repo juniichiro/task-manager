@@ -1,3 +1,8 @@
+<?php
+$note_id = $_GET['notes_id']
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +12,7 @@
 </head>
 <body>
     <form method="POST" enctype="multipart/form-data" action="process-upload.php">
+        <input type="hidden" name="note_id" value="<?= htmlspecialchars($note_id) ?>">
         <label for="file">Upload File</label>
         <input type="file" id = "file" name = "file">
         <button>Upload</button>

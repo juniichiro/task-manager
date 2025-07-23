@@ -45,6 +45,9 @@ if ($_FILES['file']["size"] > 25600000) {
     exit ("Files can be no more than 25 MB");
 }
 
+$note_id = $_POST['note_id'];
+
+
 // getting file types
 $finfo = new finfo (FILEINFO_MIME_TYPE);
 // gets the file type by looking at the tmp_name arrays in $_FILES
@@ -69,34 +72,47 @@ $filename = $base . "." . $pathinfo["extension"];
 $destination = "/xampp/htdocs/task-manager/assets/uploads/" . "$filename";
 
 // cases where duplicated filenames can be accepted
-$i = 1;
+// $i = 1;
 
-while (file_exists($destination)) {
+// while (file_exists($destination)) {
 
-    $filename = $base . "($i)." .  $pathinfo["extension"];
-    $destination = "../assets/uploads/" . $filename;
+$filename = $base . "." . $pathinfo["extension"];
+$destination = "../assets/uploads/" . $filename;
 
-    $i++;
-}
+//     $i++;
+// }
+
+// if (file_exists($destination)) {
+//     header("Location:../pages/task/view_notes.php?notes_id=" . $note_id);
+// }
 
 if ( ! move_uploaded_file($_FILES['file']["tmp_name"], $destination)) {
     exit ("File can't be moved.");
 }
 
-$sql = "INSERT INTO upload (file_name, file_path) VALUES (? , ?);";
-$stmt = mysqli_stmt_init($db);
+$db_path = "../../assets/uploads/" . $filename;
 
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        echo"<script>
-        alert('SQL Error');
-        location.href = 'registration.php;
-        </script>";
-    }
+    $sql_check = "SELECT notes_id FROM upload WHERE notes_id = ?";
+    $stmt_check = mysqli_prepare($db, $sql_check);
+    mysqli_stmt_bind_param($stmt_check, "s", $note_id);
+    mysqli_stmt_execute($stmt_check);
+    mysqli_stmt_store_result($stmt_check);
+
+    if (mysqli_stmt_num_rows($stmt_check) > 0) {
+        $sql_update = "UPDATE upload SET file_name = ?, file_path = ? WHERE notes_id = ?";
+        $stmt_update = mysqli_prepare($db, $sql_update);
+        mysqli_stmt_bind_param($stmt_update, "sss", $filename, $db_path, $note_id);
+        mysqli_stmt_execute($stmt_update);
+    } 
     else {
-        mysqli_stmt_bind_param($stmt, "ss", $filename, $destination);
-        mysqli_stmt_execute($stmt);
-        header("Location: login.php");
+        $sql_insert = "INSERT INTO upload (file_name, file_path, notes_id) VALUES (?, ?, ?)";
+        $stmt_insert = mysqli_prepare($db, $sql_insert);
+        mysqli_stmt_bind_param($stmt_insert, "sss", $filename, $db_path, $note_id);
+        mysqli_stmt_execute($stmt_insert);
     }
 
-echo ("File uploaded succesfully");
+
+header("Location: ../pages/task/view_notes.php?notes_id=" . $note_id);
+exit;
+
 ?>
