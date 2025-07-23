@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="auth.css">
     <div class="wrapper">
         <span class="icon-close">
-                <a href="../front/front.html"><ion-icon name="close-outline"></ion-icon></a>  
+                <a href="../front/front.php"><ion-icon name="close-outline"></ion-icon></a>  
         </span>
         <form action="registration_submit.php" method = "POST" class="registration-form" autocomplete="off">
             <h2>Register</h2>
