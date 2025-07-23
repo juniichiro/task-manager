@@ -58,7 +58,7 @@ $username = $_SESSION['username'];
                 <h1>Task List</h1>
             </div>
                 <div class="Logout">
-                <a href="../auth/logout.php">Logout</a>
+                <a href="../auth/logout.php">Logout, <?php echo $username?></?php></a>
                 </div>
             </div>
         <div class="Middlecontainer">
