@@ -1,3 +1,4 @@
+/* style.css */
 :root {
     --primary-color: #1e9fab;
     --primary-dark: #16818c;
@@ -5,6 +6,7 @@
     --secondary-color: #797979;
     --background-color: #f5f7fa;
     --white: #ffffff;
+    --text-dark: #2d3748;
     --gray-light: #edf2f7;
     --gray-medium: #e2e8f0;
     --gray-dark: #718096;
@@ -30,6 +32,54 @@ body {
   
 }
 
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+
+    background-color: var(--white);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--text-dark);
+}
+
+.btn-logout {
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-logout:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+
 .maincontainer{
     height: 100%;
     display: flex;
@@ -49,20 +99,25 @@ body {
     height: 9%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     color: white;
     text-shadow:  1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.Logout{
-    margin: 10px;
+.btn-logout{
+    /* margin: 10px; */
     text-decoration: none;
 }
 
-.Logout a {
+.btn-logout a {
     text-decoration: none;
     color: white;
 }
+
+
+
+
 
 
 
@@ -120,7 +175,7 @@ hr{
     text-overflow: ellipsis;
     white-space: nowrap;         /* Prevent line break */
     overflow: hidden; 
-    max-width: 100px; 
+    max-width: 200px; 
 }
 
 
@@ -135,7 +190,14 @@ hr{
     background-color: #f1f2f4;
     margin: 10px;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+
+    
+}
+
+.boxcontainer:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
 }
 
 .task_container{
@@ -152,6 +214,16 @@ hr{
 .buttontest1{
     text-decoration: none;
     border: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 6px;
+    background-color: #f1f2f4;
 }
 
 .buttontest1:hover{
@@ -182,13 +254,16 @@ hr{
     justify-items: center;
 }
 
-.hyperlinktext{
+.task{
     text-decoration: none;
     display: flex;
+    color: black;
 }
 
 .tasknotes{
     text-decoration: none;
+    width: 50px;
+
 
 }
 
@@ -197,7 +272,6 @@ hr{
     margin: 10px;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     border-radius: 5px;
-  
     text-overflow: ellipsis;
     white-space: nowrap;         /* Prevent line break */
     overflow: hidden; 
@@ -215,17 +289,19 @@ hr{
     background-color: #f1f2f4;
     border-radius: 5px;
     margin: 5px;
-
 }
 
-.tasknotes{
+
+.boxnotes_container a{
+    text-decoration: none;
     color: black;
+    width: 272px;
+    display: block;
+    
+    
 }
 
-.boxnotes_container:hover{
-    background-color: #cfd3da;
-    cursor: pointer;
-}
+
 
 .mainboxtask_container{
     display: flex;
@@ -254,6 +330,12 @@ hr{
 
 }
 
+textarea {
+    resize: none; /* allow resizing */
+    margin: 5px;
+    width: 95%;
+}
+
 .buttoncontainers{
     padding-left: 10px;
     padding-bottom: 5px;
@@ -263,6 +345,17 @@ hr{
     height: 25px;
     width: 100px;
 
+}
+
+.button_edit{
+    height: 25px;
+    width: 100px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 
