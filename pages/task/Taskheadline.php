@@ -1,9 +1,5 @@
 
-<?php
 
-require "../../includes/dbconnection.php";
-$query = $db->query("SELECT * FROM task WHERE user_id = $user_id");
-?>
 <div class="mainboxtask_container">
     <div class='boxtasks_wrapper'>
     <?php while($result = $query->fetch_assoc()) { ?>
@@ -21,17 +17,12 @@ $query = $db->query("SELECT * FROM task WHERE user_id = $user_id");
     </div>
 
     <?php } ?>
-
-
-
-
 </div>
 
 <div class='boxtask_container'>
     <a href='Add_task.php?insert_task=1' class='task'>
             <img src='../../assets/images/plusicon.png' alt='Add Icon' class='Plus_icon'>
             <span class='hyperlinktext'> Add Task</span></a>
-</div>
     </div>
-
+</div>
 
