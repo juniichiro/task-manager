@@ -13,9 +13,12 @@ if (isset($_GET['insert_notes']) && $_GET['task_id'] == $result['task_id']) { ?>
             <div class="inputheadline">
                 <textarea name="note_descrip" id="Notes_DescText"placeholder="Enter Description" required></textarea><br>
             </div>
-            <div class="buttoncontainers">
-                <input type="submit" class="btn btn-success">
+           <div class="buttoncontainers">
+            <div class="buttongoback">
+                <a href='indexhome.php' class='escbuttn'>Go back</a>
             </div>
+            <input type="submit" id="button_add" value="Submit Notes">
+        </div>
         </form>
     </div>
 <?php
@@ -25,7 +28,8 @@ if (isset($_GET['insert_notes']) && $_GET['task_id'] == $result['task_id']) { ?>
     while ($notes = $notesquery->fetch_assoc()) { 
 ?>
     
-    <a class="Notes_headlinecontainer"href='view_notes.php?notes_id=<?php echo $notes['notes_id']; ?>'><div class="box_resultcontainer"><?php echo $notes['notes_title']; ?></div></a>
+    <a class="Notes_headlinecontainer"href='view_notes.php?notes_id=<?php echo $notes['notes_id']; ?>'>
+        <div class="box_resultcontainer"><?php echo $notes['notes_title']; ?></div></a>
      
 <?php } ?>
 <div class="boxnotes_container">

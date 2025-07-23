@@ -193,6 +193,23 @@ body::after {
     padding-bottom: 15px;
 }
 
+.imagecontainer {
+    display: flex;
+    justify-content: center;
+    max-height: auto;
+    
+    width: 100%;
+    overflow: hidden;
+    
+}
+
+#btn_remove:hover{
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+}
+
 .buttoncontainers input[type="submit"] {
     padding: 10px 1rem;
     background-color: var(--primary-color);
@@ -202,9 +219,6 @@ body::after {
     font-weight: 500;
     cursor: pointer;
     transition: var(--transition);
-    display: flex;
-    align-items: center;
-
 }
 
 .buttoncontainers input[type="submit"]:hover {
@@ -212,3 +226,14 @@ body::after {
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
+
+.buttons a:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+
+
+
+

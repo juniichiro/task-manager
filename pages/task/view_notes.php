@@ -26,18 +26,20 @@ if ($notequery && $notequery->num_rows > 0) {
     ?>
     <div class='Mainnotes_container'>
         <div class='boxcontainer'>
-            <div class='boxnotes_header'>
 
                 <?php
                 if ($upload && $upload->num_rows > 0) {
                     $row = $upload->fetch_assoc();
-                    echo '<img src="' . htmlspecialchars($row['file_path']) . '" class="image">';
                     echo '<form action="../../includes/delete_upload.php" method="POST" style="margin-top:10px;">
-                        <input type="hidden" name="note_id" value="' . $note_id . '">
-                        <button type="submit" class="btn btn-danger">Remove Image</button>
+                    <input type="hidden" name="note_id" value="' . $note_id . '">
+                    <button type="submit" class="btn btn-danger" id="btn_remove">Remove Image</button>
                     </form>';
+                    echo '<div class="imagecontainer">' ;
+                    echo '<img src="' . htmlspecialchars($row['file_path']) . '" class="image">';
+                    echo '</div>'; 
                 }
                 ?>
+                <div class='boxnotes_header'>
                 <h2><?php echo htmlspecialchars($note['notes_title']); ?></h2>
                 <a href='indexhome.php' class='tasknotes'> 
                     <span class='material-symbols-outlined'>close</span> 

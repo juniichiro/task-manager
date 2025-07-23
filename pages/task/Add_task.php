@@ -18,7 +18,10 @@ if (isset($_GET['insert_task'])) {
                 <textarea id='listtask' contenteditable="true" name='task_name' placeholder='Enter Task name' required=""></textarea><br>
             </div>
             <div class='buttoncontainers'>
-                <input type='submit' class='btn btn-success'>
+                <input type='submit' id="button_add" value="Add Task">
+                <div class="buttongoback">
+                <a href='indexhome.php' class='escbuttn'>Go back</a>
+            </div>
             </div>
         </form>
     </div>

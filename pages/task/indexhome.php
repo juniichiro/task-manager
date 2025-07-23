@@ -46,17 +46,6 @@ $notesquery = $db->query("SELECT * from notes WHERE user_id = $user_id");
             </div>
             </div>
         <div class="Middlecontainer">
-            <div class="leftcontainer">
-                <h2 class="header_Text">dashboard</h2>
-                <hr></hr>
-                <div><h1>Welcome, <?php echo $username?></h1></div>
-                <p>test1</p>
-                <p>test1</p>
-                <p>test1</p>
-                <p>test1</p>
-                <p>test1</p>
-                <p>test1</p>
-            </div>
             <div class="rightcontainer">
                 <?php include("Taskheadline.php")?>
             </div>
