@@ -1,0 +1,276 @@
+:root {
+    --primary-color: #1e9fab;
+    --primary-dark: #16818c;
+    --primary-light: rgba(30, 159, 171, 0.1);
+    --secondary-color: #797979;
+    --background-color: #f5f7fa;
+    --white: #ffffff;
+    --gray-light: #edf2f7;
+    --gray-medium: #e2e8f0;
+    --gray-dark: #718096;
+    --success-color: #48bb78;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+      height: 100%;
+      background-color: #0d8cd6;
+  
+}
+
+.maincontainer{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+        height: 100vh; /* Full viewport height */
+    width: 100%;
+}
+
+
+.Topcontainer{
+    background-color: #0092ac;
+    padding-left: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 1rem;
+    width: 100%;
+    height: 9%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    text-shadow:  1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.Logout{
+    margin: 10px;
+    text-decoration: none;
+}
+
+.Logout a {
+    text-decoration: none;
+    color: white;
+}
+
+
+
+.Middlecontainer {
+    background-color: #039bb6;
+    width: 100%;
+    height: 91%;
+    display: flex;
+    overflow: hidden; /* prevent scrollbars if not needed */
+}
+
+
+.leftcontainer {
+    margin: 10px;
+    background-color: rgb(109, 17, 17);
+    color: white;
+    width: 40%;
+    padding: 10px;
+    box-sizing: border-box;
+    height: calc(100% - 20px); 
+}
+
+
+.rightcontainer {
+    display: flex;
+    flex-direction: row;
+    height: calc(100% - 20px);
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap; 
+    align-items: flex-start; 
+    margin: 10px;
+}
+
+.header_Text{
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+
+hr{
+    border: 0;
+    height: 1px;
+    background-color: rgb(67, 62, 62);
+    
+    
+}
+
+.buttontest1{
+    text-overflow: ellipsis;
+    white-space: nowrap;         /* Prevent line break */
+    overflow: hidden; 
+    max-width: 100px; 
+}
+
+
+.boxtasks_wrapper{
+    display: flex;
+    align-items: flex-start;
+
+}
+
+.boxcontainer{
+    width : 272px;
+    background-color: #f1f2f4;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.task_container{
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+.Notes_headlinecontainer{
+    border: none;
+    text-decoration: none;
+    color: black;
+}
+
+.buttontest1{
+    text-decoration: none;
+    border: none;
+}
+
+.buttontest1:hover{
+    cursor: pointer;
+}
+
+.boxtask_container{
+    background-color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 10px;
+    width: 272px;
+    height: 20%;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.task{
+    display: flex;
+}
+
+.Plus_icon{
+
+    height: 1.2rem;
+    align-items: center;
+    justify-items: center;
+}
+
+.hyperlinktext{
+    text-decoration: none;
+    display: flex;
+}
+
+.tasknotes{
+    text-decoration: none;
+
+}
+
+.box_resultcontainer{
+    background-color: #f1f2f4;
+    margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border-radius: 5px;
+  
+    text-overflow: ellipsis;
+    white-space: nowrap;         /* Prevent line break */
+    overflow: hidden; 
+    max-width: 258px; 
+    padding: 10px;
+    
+
+}
+
+.boxnotes_container{
+    text-decoration: none;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    background-color: #f1f2f4;
+    border-radius: 5px;
+    margin: 5px;
+
+}
+
+.tasknotes{
+    color: black;
+}
+
+.boxnotes_container:hover{
+    background-color: #cfd3da;
+    cursor: pointer;
+}
+
+.mainboxtask_container{
+    display: flex;
+    flex-direction: row;
+}
+
+.inputheadline{
+    padding-left: 10px;
+    padding-bottom: 5px;
+
+}
+
+.inputheadline input[type="text"]{
+    height: 30px;
+    width: 255px;
+
+} 
+
+#Notes_DescText {
+    width: 98%;
+    min-height: 120px;
+    padding: 9px;
+    font-size: 1rem;
+    border-radius: 6px;
+    resize: none; /* allow resizing */
+
+}
+
+.buttoncontainers{
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+.buttoncontainers input[type="submit"]{
+    height: 25px;
+    width: 100px;
+
+}
+
+
+
+
+
+
+
+
+
+
